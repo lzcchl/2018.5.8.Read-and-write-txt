@@ -22,7 +22,7 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 	//cout << txtName + ".txt" << endl << dirpath + "\\1.txt" << endl;
 
 	int k = 0, firstNum;
-	bool b1 = 0, b2 = 0, b3 = 0, b4 = 0;
+	bool b1 = 0, b2 = 0, b3 = 0, b4 = 0, b11 = 0, b12 = 0;
 
 	firstNum = firstfile.get();
 	if (firstfile.eof())  //一个字符都未读到，表示文件为空
@@ -51,13 +51,13 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 		}
 		k += 1;
 
-		int z = 8;
-		char a[17][65];
-		for (int i = 0; i < 65; ++i, ++z)
+		int z = 5;
+		char a[17][64];
+		for (int i = 0; i < 32; ++i, ++z)
 		{
 			a[0][i] = s[z];
 		}
-		if (s[z - 1] != '0')
+		if (s[z] != '1' || s[z + 2] != '1')
 		{
 			b1 = 1;
 			outfile << "该文件格式错误" << endl;
@@ -65,12 +65,25 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 			rename(txtPath.c_str(), newTxtPath.c_str());
 			break;
 		}
-		z += 1;
-		for (int i = 0; i < 65; ++i, ++z)
+		z += 3;
+		for (int i = 32; i < 64; ++i, ++z)
+		{
+			a[0][i] = s[z];
+		}
+		if (s[z] != '0' || s[z + 1] != '0')
+		{
+			b11 = 1;
+			outfile << "该文件格式错误" << endl;
+			outfile.close();//需要关闭文件才能修改文件名
+			rename(txtPath.c_str(), newTxtPath.c_str());
+			break;
+		}
+		z += 2;
+		for (int i = 0; i < 64; ++i, ++z)
 		{
 			a[1][i] = s[z];
 		}
-		if (s[z - 1] != '0')
+		if (s[z] != '0' || s[z + 1] != '0')
 		{
 			b2 = 1;
 			outfile << "该文件格式错误" << endl;
@@ -78,12 +91,12 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 			rename(txtPath.c_str(), newTxtPath.c_str());
 			break;
 		}
-		z += 8;
-		for (int i = 0; i < 65; ++i, ++z)
+		z += 6;
+		for (int i = 0; i < 32; ++i, ++z)
 		{
 			a[2][i] = s[z];
 		}
-		if (s[z - 1] != '0')
+		if (s[z] != '1' || s[z + 2] != '1')
 		{
 			b3 = 1;
 			outfile << "该文件格式错误" << endl;
@@ -91,14 +104,27 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 			rename(txtPath.c_str(), newTxtPath.c_str());
 			break;
 		}
-		z += 1;
+		z += 3;
+		for (int i = 32; i < 64; ++i, ++z)
+		{
+			a[2][i] = s[z];
+		}
+		if (s[z] != '0' || s[z + 1] != '0')
+		{
+			b12 = 1;
+			outfile << "该文件格式错误" << endl;
+			outfile.close();//需要关闭文件才能修改文件名
+			rename(txtPath.c_str(), newTxtPath.c_str());
+			break;
+		}
+		z += 2;
 		for (int i = 3; i < 17; ++i)
 		{
-			for (int j = 0; j < 65; ++j, ++z)
+			for (int j = 0; j < 64; ++j, ++z)
 			{
 				a[i][j] = s[z];
 			}
-			if (s[z - 1] != '0')
+			if (s[z] != '0')
 			{
 				b4 = 1;
 				outfile << "该文件格式错误" << endl;
@@ -106,21 +132,19 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 				rename(txtPath.c_str(), newTxtPath.c_str());
 				break;
 			}
-			z += 1;
+			z += 2;
 		}
 		for (int i = 0; i < 64; ++i) {
 			for (int j = 0; j < 16; ++j)
 			{
 				outfile << a[j][i];
 			}
-
 			outfile << endl;
 		}
-
 	}
 	firstfile.close();
 	file.close();
-	if (b1 == 0 && b2 == 0 && b3 == 0 && b4 == 0)
+	if (b1 == 0 && b2 == 0 && b3 == 0 && b4 == 0 && b11 == 0 && b12 == 0)
 	{
 		outfile.close();
 	}
@@ -153,40 +177,49 @@ void readWriteTxt::generate_txt2(string txtName, string dirpath) {
 		}
 		k += 1;
 		//字符串逆序
-		char *s1 = _strrev(s);
+		//char *s1 = _strrev(s);
 		//cout << s1 << endl;
 
-		int z = 1;
-		char a[17][65];
-		for (int i = 0; i < 14; ++i)
+		int z = 5;
+		char a[17][64];
+		for (int i = 0; i < 32; ++i, ++z)
 		{
-			for (int j = 0; j < 65; ++j, ++z)
+			a[0][i] = s[z];
+		}
+		z += 3;
+		for (int i = 32; i < 64; ++i, ++z)
+		{
+			a[0][i] = s[z];
+		}
+		z += 2;
+		for (int i = 0; i < 64; ++i, ++z)
+		{
+			a[1][i] = s[z];
+		}
+		z += 6;
+		for (int i = 0; i < 32; ++i, ++z)
+		{
+			a[2][i] = s[z];
+		}
+		z += 3;
+		for (int i = 32; i < 64; ++i, ++z)
+		{
+			a[2][i] = s[z];
+		}
+		z += 2;
+		for (int i = 3; i < 17; ++i)
+		{
+			for (int j = 0; j < 64; ++j, ++z)
 			{
-				a[i][j] = s1[z];
+				a[i][j] = s[z];
 			}
-			z += 1;
+			z += 2;
 		}
-		z += 7;
-		for (int i = 0; i < 65; ++i, ++z)
-		{
-			a[14][i] = s1[z];
-		}
-		z += 1;
-		for (int i = 0; i < 65; ++i, ++z)
-		{
-			a[15][i] = s1[z];
-		}
-		z += 8;
-		for (int i = 0; i < 65; ++i, ++z)
-		{
-			a[16][i] = s1[z];
-		}
-		for (int i = 0; i < 64; ++i) {
-			for (int j = 0; j < 16; ++j)
+		for (int i = 63; i >= 0; --i) {
+			for (int j = 16; j > 0; --j)
 			{
 				outfile << a[j][i];
 			}
-
 			outfile << endl;
 		}
 	}
@@ -216,30 +249,40 @@ void readWriteTxt::generate_txt3(string txtName, string dirpath) {
 		}
 		k += 1;
 
-		int z = 8;
-		char a[17][65];
-		for (int i = 0; i < 65; ++i, ++z)
+		int z = 5;
+		char a[17][64];
+		for (int i = 0; i < 32; ++i, ++z)
 		{
 			a[0][i] = s[z];
 		}
-		z += 1;
-		for (int i = 0; i < 65; ++i, ++z)
+		z += 3;
+		for (int i = 32; i < 64; ++i, ++z)
+		{
+			a[0][i] = s[z];
+		}
+		z += 2;
+		for (int i = 0; i < 64; ++i, ++z)
 		{
 			a[1][i] = s[z];
 		}
-		z += 8;
-		for (int i = 0; i < 65; ++i, ++z)
+		z += 6;
+		for (int i = 0; i < 32; ++i, ++z)
 		{
 			a[2][i] = s[z];
 		}
-		z += 1;
+		z += 3;
+		for (int i = 32; i < 64; ++i, ++z)
+		{
+			a[2][i] = s[z];
+		}
+		z += 2;
 		for (int i = 3; i < 17; ++i)
 		{
-			for (int j = 0; j < 65; ++j, ++z)
+			for (int j = 0; j < 64; ++j, ++z)
 			{
 				a[i][j] = s[z];
 			}
-			z += 1;
+			z += 2;
 		}
 		for (int i = 0; i < 16; ++i)
 		{
@@ -264,7 +307,6 @@ void readWriteTxt::generate_txt3(string txtName, string dirpath) {
 			}
 			outfile << endl;
 		}
-
 	}
 	file.close();
 	outfile.close();
@@ -292,54 +334,64 @@ void readWriteTxt::generate_txt4(string txtName, string dirpath) {
 		}
 		k += 1;
 		//字符串逆序
-		char *s1 = _strrev(s);
+		//char *s1 = _strrev(s);
 		//cout << s1 << endl;
 
-		int z = 1;
-		char a[17][65];
-		for (int i = 0; i < 14; ++i)
+		int z = 5;
+		char a[17][64];
+		for (int i = 0; i < 32; ++i, ++z)
 		{
-			for (int j = 0; j < 65; ++j, ++z)
+			a[0][i] = s[z];
+		}
+		z += 3;
+		for (int i = 32; i < 64; ++i, ++z)
+		{
+			a[0][i] = s[z];
+		}
+		z += 2;
+		for (int i = 0; i < 64; ++i, ++z)
+		{
+			a[1][i] = s[z];
+		}
+		z += 6;
+		for (int i = 0; i < 32; ++i, ++z)
+		{
+			a[2][i] = s[z];
+		}
+		z += 3;
+		for (int i = 32; i < 64; ++i, ++z)
+		{
+			a[2][i] = s[z];
+		}
+		z += 2;
+		for (int i = 3; i < 17; ++i)
+		{
+			for (int j = 0; j < 64; ++j, ++z)
 			{
-				a[i][j] = s1[z];
+				a[i][j] = s[z];
 			}
-			z += 1;
-		}
-		z += 7;
-		for (int i = 0; i < 65; ++i, ++z)
-		{
-			a[14][i] = s1[z];
-		}
-		z += 1;
-		for (int i = 0; i < 65; ++i, ++z)
-		{
-			a[15][i] = s1[z];
-		}
-		z += 8;
-		for (int i = 0; i < 65; ++i, ++z)
-		{
-			a[16][i] = s1[z];
+			z += 2;
 		}
 		for (int i = 0; i < 16; ++i)
 		{
-			for (int j1 = 0; j1 < 16; ++j1)
+			for (int j1 = 16; j1 > 0; --j1)
 			{
-				outfile << a[j1][i];
+				outfile << a[j1][63 - i];
 			}
 			outfile << endl;
-			for (int j2 = 0; j2 < 16; ++j2)
+			for (int j2 = 16; j2 > 0; --j2)
 			{
-				outfile << a[j2][i + 16];
+				outfile << a[j2][47 - i];
 			}
 			outfile << endl;
-			for (int j3 = 0; j3 < 16; ++j3)
+			for (int j3 = 16; j3 > 0; --j3)
 			{
-				outfile << a[j3][i + 32];
+				outfile << a[j3][31 - i];
 			}
 			outfile << endl;
-			for (int j4 = 0; j4 < 16; ++j4)
+			for (int j4 = 16; j4 > 0; --j4)
 			{
-				outfile << a[j4][i + 48];
+				outfile << a[j4][15 - i];
 			}
 			outfile << endl;
 		}
