@@ -135,11 +135,24 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 			z += 2;
 		}
 		for (int i = 0; i < 64; ++i) {
+			int count = 0;
 			for (int j = 0; j < 16; ++j)
 			{
+				if (a[j][i] == '1')
+				{
+					count += 1;
+				}
 				outfile << a[j][i];
 			}
-			outfile << endl;
+			if (count % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[16][i] << endl;
 		}
 	}
 	firstfile.close();
@@ -216,11 +229,24 @@ void readWriteTxt::generate_txt2(string txtName, string dirpath) {
 			z += 2;
 		}
 		for (int i = 63; i >= 0; --i) {
+			int count = 0;
 			for (int j = 16; j > 0; --j)
 			{
+				if (a[j][i] == '1')
+				{
+					count += 1;
+				}
 				outfile << a[j][i];
 			}
-			outfile << endl;
+			if (count % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[0][i] << endl;
 		}
 	}
 	file.close();
@@ -286,26 +312,75 @@ void readWriteTxt::generate_txt3(string txtName, string dirpath) {
 		}
 		for (int i = 0; i < 16; ++i)
 		{
+			int count1 = 0, count2 = 0, count3 = 0, count4 = 0;
 			for (int j1 = 0; j1 < 16; ++j1)
 			{
+				if (a[j1][i] == '1')
+				{
+					count1 += 1;
+				}
 				outfile << a[j1][i];
 			}
-			outfile << endl;
+			if (count1 % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[16][i] << endl;
 			for (int j2 = 0; j2 < 16; ++j2)
 			{
+				if (a[j2][i + 16] == '1')
+				{
+					count2 += 1;
+				}
 				outfile << a[j2][i + 16];
 			}
-			outfile << endl;
+			if (count2 % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[16][i + 16] << endl;
 			for (int j3 = 0; j3 < 16; ++j3)
 			{
+				if (a[j3][i + 32] == '1')
+				{
+					count3 += 1;
+				}
 				outfile << a[j3][i + 32];
 			}
-			outfile << endl;
+			if (count3 % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[16][i + 32] << endl;
 			for (int j4 = 0; j4 < 16; ++j4)
 			{
+				if (a[j4][i + 48] == '1')
+				{
+					count4 += 1;
+				}
 				outfile << a[j4][i + 48];
 			}
-			outfile << endl;
+			if (count4 % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[16][i + 48] << endl;
 		}
 	}
 	file.close();
@@ -374,26 +449,75 @@ void readWriteTxt::generate_txt4(string txtName, string dirpath) {
 		}
 		for (int i = 0; i < 16; ++i)
 		{
+			int count1 = 0, count2 = 0, count3 = 0, count4 = 0;
 			for (int j1 = 16; j1 > 0; --j1)
 			{
+				if (a[j1][63 - i] == '1')
+				{
+					count1 += 1;
+				}
 				outfile << a[j1][63 - i];
 			}
-			outfile << endl;
+			if (count1 % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[0][63 - i] << endl;
 			for (int j2 = 16; j2 > 0; --j2)
 			{
+				if (a[j2][47 - i] == '1')
+				{
+					count2 += 1;
+				}
 				outfile << a[j2][47 - i];
 			}
-			outfile << endl;
+			if (count2 % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[0][47 - i] << endl;
 			for (int j3 = 16; j3 > 0; --j3)
 			{
+				if (a[j3][31 - i] == '1')
+				{
+					count3 += 1;
+				}
 				outfile << a[j3][31 - i];
 			}
-			outfile << endl;
+			if (count3 % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[0][31 - i] << endl;
 			for (int j4 = 16; j4 > 0; --j4)
 			{
+				if (a[j4][15 - i] == '1')
+				{
+					count4 += 1;
+				}
 				outfile << a[j4][15 - i];
 			}
-			outfile << endl;
+			if (count4 % 2 == 0)
+			{
+				outfile << "Å¼£º";
+			}
+			else
+			{
+				outfile << "Ææ£º";
+			}
+			outfile << a[0][15 - i] << endl;
 		}
 	}
 	file.close();
