@@ -13,7 +13,7 @@ int main()
 	string dir = buff;
 
 	//下面这行注释与否，可以转换工程和可执行exe文件的目录
-	dir.erase(dir.end() - 20, dir.end());
+	//dir.erase(dir.end() - 20, dir.end());
 	//cout << dir << endl;
 
 	cout << "正在生成，请等候..." << endl;

@@ -1,5 +1,6 @@
 #pragma once  //保证头文件只被编译一次
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -12,4 +13,5 @@ public:
 	void generate_txt4(string txtName, string dirpath);
 	void generateTxt(string txtName, string dirpath);
 	void traverse_folder(string dir);
+	void scanFirstStepTxt(fstream &newTxtFile1, int r[]);
 };
