@@ -14,4 +14,6 @@ public:
 	void generateTxt(string txtName, string dirpath);
 	void traverse_folder(string dir);
 	void scanFirstStepTxt(fstream &newTxtFile1, int r[]);
+	void bit71_To_bit64(char row[], char char_r[]);
+	void inverseChar(char char_r[], char rows[]);
 };

@@ -42,56 +42,110 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 
 	//int k0 = 0;
 	int newTxt[8][1122];
-	char row1[1123], row2[1123], row3[1123], row4[1123], row5[1123], row6[1123], row7[1123], row8[1123], row9[1123], row10[1123];
-	int r1[1122], r2[1122], r3[1122], r4[1122], r5[1122], r6[1122], r7[1122], r8[1122], r9[1122], r10[1122];
-	while (file.getline(row1, 1123)) 
+	const int bit1 = 1137;
+	const int bit2 = 1122;
+	char row1[bit1], row2[bit1], row3[bit1], row4[bit1], row5[bit1], row6[bit1], row7[bit1], row8[bit1], row9[bit1], row10[bit1];
+
+	char char_r1[bit2], char_r2[bit2], char_r3[bit2], char_r4[bit2], char_r5[bit2], char_r6[bit2], char_r7[bit2], char_r8[bit2], char_r9[bit2], char_r10[bit2];
+	int r1[bit2], r2[bit2], r3[bit2], r4[bit2], r5[bit2], r6[bit2], r7[bit2], r8[bit2], r9[bit2], r10[bit2];
+	while (file.getline(row1, bit1)) 
 	{
-		file.getline(row2, 1123);
-		file.getline(row3, 1123);
-		file.getline(row4, 1123);
-		file.getline(row5, 1123);
-		file.getline(row6, 1123);
-		file.getline(row7, 1123);
-		file.getline(row8, 1123);
-		file.getline(row9, 1123);
-		file.getline(row10, 1123);
+		file.getline(row2, bit1);
+		file.getline(row3, bit1);
+		file.getline(row4, bit1);
+		file.getline(row5, bit1);
+		file.getline(row6, bit1);
+		file.getline(row7, bit1);
+		file.getline(row8, bit1);
+		file.getline(row9, bit1);
+		file.getline(row10, bit1);
 
 		//cout << row1 << endl;
 
-		for (int i = 0; i < 1122; ++i)
-		{
-			if (row1[i] == '1') {r1[i] = 1;}
-			else{r1[i] = 0;}
+		bit71_To_bit64(row1, char_r1);
+		bit71_To_bit64(row2, char_r2);
+		bit71_To_bit64(row3, char_r3);
+		bit71_To_bit64(row4, char_r4);
+		bit71_To_bit64(row5, char_r5);
+		bit71_To_bit64(row6, char_r6);
+		bit71_To_bit64(row7, char_r7);
+		bit71_To_bit64(row8, char_r8);
+		bit71_To_bit64(row9, char_r9);
+		bit71_To_bit64(row10, char_r10);
+		//for (int i = 0; i < 1122; ++i)
+		//{
+		//	cout << char_r1[i];
+		//}
 
-			if (row2[i] == '1') { r2[i] = 1; }
+		for (int i = 0; i < bit2; ++i)
+		{
+			if (char_r1[i] == '1') { r1[i] = 1; }
+			else { r1[i] = 0; }
+
+			if (char_r2[i] == '1') { r2[i] = 1; }
 			else { r2[i] = 0; }
 
-			if (row3[i] == '1') { r3[i] = 1; }
+			if (char_r3[i] == '1') { r3[i] = 1; }
 			else { r3[i] = 0; }
 
-			if (row4[i] == '1') { r4[i] = 1; }
+			if (char_r4[i] == '1') { r4[i] = 1; }
 			else { r4[i] = 0; }
 
-			if (row5[i] == '1') { r5[i] = 1; }
+			if (char_r5[i] == '1') { r5[i] = 1; }
 			else { r5[i] = 0; }
 
-			if (row6[i] == '1') { r6[i] = 1; }
+			if (char_r6[i] == '1') { r6[i] = 1; }
 			else { r6[i] = 0; }
 
-			if (row7[i] == '1') { r7[i] = 1; }
+			if (char_r7[i] == '1') { r7[i] = 1; }
 			else { r7[i] = 0; }
 
-			if (row8[i] == '1') { r8[i] = 1; }
+			if (char_r8[i] == '1') { r8[i] = 1; }
 			else { r8[i] = 0; }
 
-			if (row9[i] == '1') { r9[i] = 1; }
+			if (char_r9[i] == '1') { r9[i] = 1; }
 			else { r9[i] = 0; }
 
-			if (row10[i] == '1') { r10[i] = 1; }
+			if (char_r10[i] == '1') { r10[i] = 1; }
 			else { r10[i] = 0; }
 
 			//cout << r1[i];
 		}
+
+		//for (int i = 0; i < bit2; ++i)
+		//{
+		//	if (row1[i] == '1') {r1[i] = 1;}
+		//	else{r1[i] = 0;}
+
+		//	if (row2[i] == '1') { r2[i] = 1; }
+		//	else { r2[i] = 0; }
+
+		//	if (row3[i] == '1') { r3[i] = 1; }
+		//	else { r3[i] = 0; }
+
+		//	if (row4[i] == '1') { r4[i] = 1; }
+		//	else { r4[i] = 0; }
+
+		//	if (row5[i] == '1') { r5[i] = 1; }
+		//	else { r5[i] = 0; }
+
+		//	if (row6[i] == '1') { r6[i] = 1; }
+		//	else { r6[i] = 0; }
+
+		//	if (row7[i] == '1') { r7[i] = 1; }
+		//	else { r7[i] = 0; }
+
+		//	if (row8[i] == '1') { r8[i] = 1; }
+		//	else { r8[i] = 0; }
+
+		//	if (row9[i] == '1') { r9[i] = 1; }
+		//	else { r9[i] = 0; }
+
+		//	if (row10[i] == '1') { r10[i] = 1; }
+		//	else { r10[i] = 0; }
+
+		//	//cout << r1[i];
+		//}
 
 		scanFirstStepTxt(newTxtFile1, r1);
 		scanFirstStepTxt(newTxtFile1, r2);
@@ -104,17 +158,8 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 		scanFirstStepTxt(newTxtFile1, r9);
 		scanFirstStepTxt(newTxtFile1, r10);
 
-		for (int i = 0; i < 1122; ++i)
+		for (int i = 0; i < bit2; ++i)
 		{
-			//newTxt[k0 * 8 + 0][i] = r2[i] & r3[i] & r4[i];
-			//newTxt[k0 * 8 + 1][i] = r1[i] & r3[i] & r4[i];
-			//newTxt[k0 * 8 + 2][i] = r1[i] & r2[i] & r4[i];
-			//newTxt[k0 * 8 + 3][i] = r1[i] & r2[i] & r3[i];
-
-			//newTxt[k0 * 8 + 4][i] = r8[i] & r9[i] & r10[i];
-			//newTxt[k0 * 8 + 5][i] = r7[i] & r9[i] & r10[i];
-			//newTxt[k0 * 8 + 6][i] = r7[i] & r8[i] & r10[i];
-			//newTxt[k0 * 8 + 7][i] = r7[i] & r8[i] & r9[i];
 			newTxt[0][i] = r2[i] & r3[i] & r4[i];
 			newTxt[1][i] = r1[i] & r3[i] & r4[i];
 			newTxt[2][i] = r1[i] & r2[i] & r4[i];
@@ -125,7 +170,6 @@ bool readWriteTxt::generate_txt1(string txtName, string dirpath, bool b) {
 			newTxt[6][i] = r7[i] & r8[i] & r10[i];
 			newTxt[7][i] = r7[i] & r8[i] & r9[i];
 		}
-		//k0 += 1;
 
 		scanFirstStepTxt(newTxtFile2, newTxt[0]);
 		scanFirstStepTxt(newTxtFile2, newTxt[1]);
@@ -334,31 +378,60 @@ void readWriteTxt::generate_txt2(string txtName, string dirpath) {
 
 
 	int newTxt[8][1122];
-	char row1[1123], row2[1123], row3[1123], row4[1123], row5[1123], row6[1123], row7[1123], row8[1123], row9[1123], row10[1123];
-	int r1[1122], r2[1122], r3[1122], r4[1122], r5[1122], r6[1122], r7[1122], r8[1122], r9[1122], r10[1122];
-	while (file.getline(row1, 1123))
+	const int bit1 = 1137;
+	const int bit2 = 1122;
+	char row1[bit1], row2[bit1], row3[bit1], row4[bit1], row5[bit1], row6[bit1], row7[bit1], row8[bit1], row9[bit1], row10[bit1];
+
+	char char_r1[bit2], char_r2[bit2], char_r3[bit2], char_r4[bit2], char_r5[bit2], char_r6[bit2], char_r7[bit2], char_r8[bit2], char_r9[bit2], char_r10[bit2];
+	int r1[bit2], r2[bit2], r3[bit2], r4[bit2], r5[bit2], r6[bit2], r7[bit2], r8[bit2], r9[bit2], r10[bit2];
+	char rows1[bit2], rows2[bit2], rows3[bit2], rows4[bit2], rows5[bit2], rows6[bit2], rows7[bit2], rows8[bit2], rows9[bit2], rows10[bit2];
+	while (file.getline(row1, bit1))
 	{
-		file.getline(row2, 1123);
-		file.getline(row3, 1123);
-		file.getline(row4, 1123);
-		file.getline(row5, 1123);
-		file.getline(row6, 1123);
-		file.getline(row7, 1123);
-		file.getline(row8, 1123);
-		file.getline(row9, 1123);
-		file.getline(row10, 1123);
+		file.getline(row2, bit1);
+		file.getline(row3, bit1);
+		file.getline(row4, bit1);
+		file.getline(row5, bit1);
+		file.getline(row6, bit1);
+		file.getline(row7, bit1);
+		file.getline(row8, bit1);
+		file.getline(row9, bit1);
+		file.getline(row10, bit1);
 
-		char *rows1 = _strrev(row1);
-		char *rows2 = _strrev(row2);
-		char *rows3 = _strrev(row3);
-		char *rows4 = _strrev(row4);
-		char *rows7 = _strrev(row7);
-		char *rows8 = _strrev(row8);
-		char *rows9 = _strrev(row9);
-		char *rows10 = _strrev(row10);
+		//cout << row1 << endl;
 
+		bit71_To_bit64(row1, char_r1);
+		bit71_To_bit64(row2, char_r2);
+		bit71_To_bit64(row3, char_r3);
+		bit71_To_bit64(row4, char_r4);
+		bit71_To_bit64(row5, char_r5);
+		bit71_To_bit64(row6, char_r6);
+		bit71_To_bit64(row7, char_r7);
+		bit71_To_bit64(row8, char_r8);
+		bit71_To_bit64(row9, char_r9);
+		bit71_To_bit64(row10, char_r10);
 
-		for (int i = 0; i < 1122; ++i)
+		//for (int i = 0; i < 1122; ++i)
+		//{
+		//	cout << char_r1[i];
+		//}
+		//cout << endl;
+
+		inverseChar(char_r1, rows1);
+		inverseChar(char_r2, rows2);
+		inverseChar(char_r3, rows3);
+		inverseChar(char_r4, rows4);
+		inverseChar(char_r5, rows5);
+		inverseChar(char_r6, rows6);
+		inverseChar(char_r7, rows7);
+		inverseChar(char_r8, rows8);
+		inverseChar(char_r9, rows9);
+		inverseChar(char_r10, rows10);
+		//for (int i = 0; i < 1122; ++i)
+		//{
+		//	cout << rows1[i];
+		//}
+
+		for (int i = 0; i < bit2; ++i)
 		{
 			if (rows1[i] == '1') { r1[i] = 1; }
 			else { r1[i] = 0; }
@@ -371,6 +444,12 @@ void readWriteTxt::generate_txt2(string txtName, string dirpath) {
 
 			if (rows4[i] == '1') { r4[i] = 1; }
 			else { r4[i] = 0; }
+
+			if (rows5[i] == '1') { r5[i] = 1; }
+			else { r5[i] = 0; }
+
+			if (rows6[i] == '1') { r6[i] = 1; }
+			else { r6[i] = 0; }
 
 			if (rows7[i] == '1') { r7[i] = 1; }
 			else { r7[i] = 0; }
@@ -387,7 +466,53 @@ void readWriteTxt::generate_txt2(string txtName, string dirpath) {
 			//cout << r1[i];
 		}
 
-		for (int i = 0; i < 1122; ++i)
+		//for (int i = 0; i < bit2; ++i)
+		//{
+		//	if (row1[i] == '1') {r1[i] = 1;}
+		//	else{r1[i] = 0;}
+
+		//	if (row2[i] == '1') { r2[i] = 1; }
+		//	else { r2[i] = 0; }
+
+		//	if (row3[i] == '1') { r3[i] = 1; }
+		//	else { r3[i] = 0; }
+
+		//	if (row4[i] == '1') { r4[i] = 1; }
+		//	else { r4[i] = 0; }
+
+		//	if (row5[i] == '1') { r5[i] = 1; }
+		//	else { r5[i] = 0; }
+
+		//	if (row6[i] == '1') { r6[i] = 1; }
+		//	else { r6[i] = 0; }
+
+		//	if (row7[i] == '1') { r7[i] = 1; }
+		//	else { r7[i] = 0; }
+
+		//	if (row8[i] == '1') { r8[i] = 1; }
+		//	else { r8[i] = 0; }
+
+		//	if (row9[i] == '1') { r9[i] = 1; }
+		//	else { r9[i] = 0; }
+
+		//	if (row10[i] == '1') { r10[i] = 1; }
+		//	else { r10[i] = 0; }
+
+		//	//cout << r1[i];
+		//}
+
+		//scanFirstStepTxt(newTxtFile1, r1);
+		//scanFirstStepTxt(newTxtFile1, r2);
+		//scanFirstStepTxt(newTxtFile1, r3);
+		//scanFirstStepTxt(newTxtFile1, r4);
+		//scanFirstStepTxt(newTxtFile1, r5);
+		//scanFirstStepTxt(newTxtFile1, r6);
+		//scanFirstStepTxt(newTxtFile1, r7);
+		//scanFirstStepTxt(newTxtFile1, r8);
+		//scanFirstStepTxt(newTxtFile1, r9);
+		//scanFirstStepTxt(newTxtFile1, r10);
+
+		for (int i = 0; i < bit2; ++i)
 		{
 			newTxt[0][i] = r2[i] & r3[i] & r4[i];
 			newTxt[1][i] = r1[i] & r3[i] & r4[i];
@@ -399,7 +524,15 @@ void readWriteTxt::generate_txt2(string txtName, string dirpath) {
 			newTxt[6][i] = r7[i] & r8[i] & r10[i];
 			newTxt[7][i] = r7[i] & r8[i] & r9[i];
 		}
-		//k0 += 1;
+
+		//scanFirstStepTxt(newTxtFile2, newTxt[0]);
+		//scanFirstStepTxt(newTxtFile2, newTxt[1]);
+		//scanFirstStepTxt(newTxtFile2, newTxt[2]);
+		//scanFirstStepTxt(newTxtFile2, newTxt[3]);
+		//scanFirstStepTxt(newTxtFile2, newTxt[4]);
+		//scanFirstStepTxt(newTxtFile2, newTxt[5]);
+		//scanFirstStepTxt(newTxtFile2, newTxt[6]);
+		//scanFirstStepTxt(newTxtFile2, newTxt[7]);
 
 		int t[17][16];
 
@@ -442,6 +575,116 @@ void readWriteTxt::generate_txt2(string txtName, string dirpath) {
 		}
 
 	}
+
+	//int newTxt[8][1122];
+	//char row1[1123], row2[1123], row3[1123], row4[1123], row5[1123], row6[1123], row7[1123], row8[1123], row9[1123], row10[1123];
+	//int r1[1122], r2[1122], r3[1122], r4[1122], r5[1122], r6[1122], r7[1122], r8[1122], r9[1122], r10[1122];
+	//while (file.getline(row1, 1123))
+	//{
+	//	file.getline(row2, 1123);
+	//	file.getline(row3, 1123);
+	//	file.getline(row4, 1123);
+	//	file.getline(row5, 1123);
+	//	file.getline(row6, 1123);
+	//	file.getline(row7, 1123);
+	//	file.getline(row8, 1123);
+	//	file.getline(row9, 1123);
+	//	file.getline(row10, 1123);
+
+		//char *rows1 = _strrev(row1);
+		//char *rows2 = _strrev(row2);
+		//char *rows3 = _strrev(row3);
+		//char *rows4 = _strrev(row4);
+		//char *rows7 = _strrev(row7);
+		//char *rows8 = _strrev(row8);
+		//char *rows9 = _strrev(row9);
+		//char *rows10 = _strrev(row10);
+
+
+	//	for (int i = 0; i < 1122; ++i)
+	//	{
+	//		if (rows1[i] == '1') { r1[i] = 1; }
+	//		else { r1[i] = 0; }
+
+	//		if (rows2[i] == '1') { r2[i] = 1; }
+	//		else { r2[i] = 0; }
+
+	//		if (rows3[i] == '1') { r3[i] = 1; }
+	//		else { r3[i] = 0; }
+
+	//		if (rows4[i] == '1') { r4[i] = 1; }
+	//		else { r4[i] = 0; }
+
+	//		if (rows7[i] == '1') { r7[i] = 1; }
+	//		else { r7[i] = 0; }
+
+	//		if (rows8[i] == '1') { r8[i] = 1; }
+	//		else { r8[i] = 0; }
+
+	//		if (rows9[i] == '1') { r9[i] = 1; }
+	//		else { r9[i] = 0; }
+
+	//		if (rows10[i] == '1') { r10[i] = 1; }
+	//		else { r10[i] = 0; }
+
+	//		//cout << r1[i];
+	//	}
+
+	//	for (int i = 0; i < 1122; ++i)
+	//	{
+	//		newTxt[0][i] = r2[i] & r3[i] & r4[i];
+	//		newTxt[1][i] = r1[i] & r3[i] & r4[i];
+	//		newTxt[2][i] = r1[i] & r2[i] & r4[i];
+	//		newTxt[3][i] = r1[i] & r2[i] & r3[i];
+
+	//		newTxt[4][i] = r8[i] & r9[i] & r10[i];
+	//		newTxt[5][i] = r7[i] & r9[i] & r10[i];
+	//		newTxt[6][i] = r7[i] & r8[i] & r10[i];
+	//		newTxt[7][i] = r7[i] & r8[i] & r9[i];
+	//	}
+	//	//k0 += 1;
+
+	//	int t[17][16];
+
+	//	for (int i = 0; i < 8; ++i)
+	//	{
+	//		for (int j = 0; j < 17; ++j)
+	//		{
+	//			for (int k = 0; k < 16; ++k)
+	//			{
+	//				t[j][k] = newTxt[i][66 * j + k + 1] | newTxt[i][66 * j + k + 17] | newTxt[i][66 * j + k + 33] | newTxt[i][66 * j + k + 49];
+	//				//cout << t[j][k];
+	//			}
+	//			//cout << endl;
+	//		}
+
+	//		for (int m = 0; m < 16; ++m)
+	//		{
+	//			int count = 0;
+	//			for (int n = 0; n < 16; ++n)
+	//			{
+	//				if (t[n][m] == 1)
+	//				{
+	//					count += 1;
+	//				}
+	//				outfile << t[n][m];
+	//			}
+
+	//			if (count % 2 == 0)
+	//			{
+	//				outfile << " 偶：";
+	//			}
+	//			else
+	//			{
+	//				outfile << " 奇：";
+	//			}
+	//			outfile << t[16][m];
+
+	//			outfile << endl;
+	//		}
+	//	}
+
+	//}
 
 
 
@@ -801,12 +1044,12 @@ void readWriteTxt::generate_txt4(string txtName, string dirpath) {
 void readWriteTxt::generateTxt(string txtName, string dirpath) {
 	bool b = 0;
 	b = generate_txt1(txtName, dirpath, b);
-	//if (b == 0)
-	//{
-	//	generate_txt2(txtName, dirpath);
-	//	//generate_txt3(txtName, dirpath);
-	//	//generate_txt4(txtName, dirpath);
-	//}
+	if (b == 0)
+	{
+		generate_txt2(txtName, dirpath);
+	//	generate_txt3(txtName, dirpath);
+	//	generate_txt4(txtName, dirpath);
+	}
 }
 
 void readWriteTxt::traverse_folder(string dir) {  //这里的filepath应为"...\\data"
@@ -858,7 +1101,6 @@ void readWriteTxt::traverse_folder(string dir) {  //这里的filepath应为"...\\data
 }
 
 
-
 void readWriteTxt::scanFirstStepTxt(fstream &newTxtFile, int r[])
 {
 	for (int j = 0; j < 17; ++j)
@@ -885,4 +1127,34 @@ void readWriteTxt::scanFirstStepTxt(fstream &newTxtFile, int r[])
 		newTxtFile << " ";
 	}
 	newTxtFile << endl;
+}
+
+void readWriteTxt::bit71_To_bit64(char row[], char char_r[])
+{
+	char_r[0] = row[0];
+	for (int i = 1; i < 33; ++i)
+	{
+		char_r[i] = row[i + 4];
+	}
+	for (int i = 33; i < 133; ++i)
+	{
+		char_r[i] = row[i + 7];
+	}
+	for (int i = 133; i < 165; ++i)
+	{
+		char_r[i] = row[i + 11];
+	}
+	for (int i = 165; i < 1122; ++i)
+	{
+		char_r[i] = row[i + 14];
+	}
+}
+
+
+void readWriteTxt::inverseChar(char char_r[], char rows[])
+{
+	for (int i = 0; i < 1122; ++i)
+	{
+		rows[i] = char_r[1121 - i];
+	}
 }
