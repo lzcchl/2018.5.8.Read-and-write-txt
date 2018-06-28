@@ -16,7 +16,7 @@ void readWriteTxt::generate_txt1For64Bit(string txtName, string dirpath) {
 	firstfile.open(txtName, ios::in);
 
 	string txtPath = dirpath + "\\1.txt";
-	string newTxtName1 = dirpath + "\\1new_ROM_L2.txt";
+	string newTxtName1 = dirpath + "\\1的过程文件.txt";
 	//string newTxtName2 = dirpath + "\\new_2_ROM_L2.txt";
 	string newTxtPath = dirpath + "\\该文件格式错误.txt";
 	outfile.open(txtPath, ios::out);
@@ -379,7 +379,7 @@ void readWriteTxt::generate_txt1For71Bit(string txtName, string dirpath) {
 	firstfile.open(txtName, ios::in);
 
 	string txtPath = dirpath + "\\1.txt";
-	string newTxtName1 = dirpath + "\\1new_ROM_L2.txt";
+	string newTxtName1 = dirpath + "\\1的过程文件.txt";
 	//string newTxtName2 = dirpath + "\\new_2_ROM_L2.txt";
 	string newTxtPath = dirpath + "\\该文件格式错误.txt";
 	outfile.open(txtPath, ios::out);
@@ -598,7 +598,7 @@ void readWriteTxt::generate_txt2For64Bit(string txtName, string dirpath) {
 
 	outfile.open(dirpath + "\\2.txt", ios::out);
 
-	string newTxtName2 = dirpath + "\\2new_ROM_L2.txt";
+	string newTxtName2 = dirpath + "\\2的过程文件.txt";
 	newTxtFile1.open(newTxtName2, ios::out);
 
 
@@ -1021,7 +1021,7 @@ void readWriteTxt::generate_txt2For71Bit(string txtName, string dirpath) {
 
 	outfile.open(dirpath + "\\2.txt", ios::out);
 
-	string newTxtName2 = dirpath + "\\2new_ROM_L2.txt";
+	string newTxtName2 = dirpath + "\\2的过程文件.txt";
 	newTxtFile1.open(newTxtName2, ios::out);
 
 
@@ -1047,56 +1047,56 @@ void readWriteTxt::generate_txt2For71Bit(string txtName, string dirpath) {
 
 		//cout << row1 << endl;
 
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////用于71位
-		//bit71_To_bit64(row1, char_r1);
-		//bit71_To_bit64(row2, char_r2);
-		//bit71_To_bit64(row3, char_r3);
-		//bit71_To_bit64(row4, char_r4);
-		//bit71_To_bit64(row5, char_r5);
-		//bit71_To_bit64(row6, char_r6);
-		//bit71_To_bit64(row7, char_r7);
-		//bit71_To_bit64(row8, char_r8);
-		//bit71_To_bit64(row9, char_r9);
-		//bit71_To_bit64(row10, char_r10);
-
-		////for (int i = 0; i < 1122; ++i)
-		////{
-		////	cout << char_r1[i];
-		////}
-		////cout << endl;
-
-		//inverseChar(char_r1, rows1);
-		//inverseChar(char_r2, rows2);
-		//inverseChar(char_r3, rows3);
-		//inverseChar(char_r4, rows4);
-		//inverseChar(char_r5, rows5);
-		//inverseChar(char_r6, rows6);
-		//inverseChar(char_r7, rows7);
-		//inverseChar(char_r8, rows8);
-		//inverseChar(char_r9, rows9);
-		//inverseChar(char_r10, rows10);
-		////for (int i = 0; i < 1122; ++i)
-		////{
-		////	cout << rows1[i];
-		////}
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//用于64位
-		inverseChar(row1, rows1);
-		inverseChar(row2, rows2);
-		inverseChar(row3, rows3);
-		inverseChar(row4, rows4);
-		inverseChar(row5, rows5);
-		inverseChar(row6, rows6);
-		inverseChar(row7, rows7);
-		inverseChar(row8, rows8);
-		inverseChar(row9, rows9);
-		inverseChar(row10, rows10);
+		//用于71位
+		bit71_To_bit64(row1, char_r1);
+		bit71_To_bit64(row2, char_r2);
+		bit71_To_bit64(row3, char_r3);
+		bit71_To_bit64(row4, char_r4);
+		bit71_To_bit64(row5, char_r5);
+		bit71_To_bit64(row6, char_r6);
+		bit71_To_bit64(row7, char_r7);
+		bit71_To_bit64(row8, char_r8);
+		bit71_To_bit64(row9, char_r9);
+		bit71_To_bit64(row10, char_r10);
+
+		//for (int i = 0; i < 1122; ++i)
+		//{
+		//	cout << char_r1[i];
+		//}
+		//cout << endl;
+
+		inverseChar(char_r1, rows1);
+		inverseChar(char_r2, rows2);
+		inverseChar(char_r3, rows3);
+		inverseChar(char_r4, rows4);
+		inverseChar(char_r5, rows5);
+		inverseChar(char_r6, rows6);
+		inverseChar(char_r7, rows7);
+		inverseChar(char_r8, rows8);
+		inverseChar(char_r9, rows9);
+		inverseChar(char_r10, rows10);
+		//for (int i = 0; i < 1122; ++i)
+		//{
+		//	cout << rows1[i];
+		//}
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////用于64位
+		//inverseChar(row1, rows1);
+		//inverseChar(row2, rows2);
+		//inverseChar(row3, rows3);
+		//inverseChar(row4, rows4);
+		//inverseChar(row5, rows5);
+		//inverseChar(row6, rows6);
+		//inverseChar(row7, rows7);
+		//inverseChar(row8, rows8);
+		//inverseChar(row9, rows9);
+		//inverseChar(row10, rows10);
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		for (int i = 0; i < bit2; ++i)
 		{
@@ -1706,11 +1706,12 @@ void readWriteTxt::judgeFor71or64(string txtName, string dirpath)
 	}
 
 
+
 	//用来判断是71位还是64位
 	fstream bitfile;
 	bitfile.open(txtName, ios::in);
 	char vec2[1200];
-	while (file.getline(vec2, 1200))
+	while (bitfile.getline(vec2, 1200))
 	{
 		if (vec2[1] == '1' && vec2[2] == '1' && vec2[3] == '1' && vec2[4] == '1')
 		{
@@ -1720,7 +1721,11 @@ void readWriteTxt::judgeFor71or64(string txtName, string dirpath)
 		{
 			generate_txt1For64Bit(txtName, dirpath);
 			generate_txt2For64Bit(txtName, dirpath);
-			break;
+			bitfile.close();
+			firstfile.close();
+			outfile.close();
+			file.close();
+			return;
 		}
 	}
 	generate_txt1For71Bit(txtName, dirpath);
